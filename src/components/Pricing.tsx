@@ -132,7 +132,7 @@ const Pricing = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
                 className="flex flex-row text-lg py-4 w-full"
                 // onClick={paymentBtnHandler}
               >
-                <p>Sing up to join waitlist</p>
+                <p>Sign up to join waitlist</p>
                 <MoveRightIcon className="h-8 w-8 ml-4" />
               </Button>
             </CardFooter>

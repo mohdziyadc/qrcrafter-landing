@@ -57,8 +57,8 @@ const SignUp = (props: Props) => {
   };
 
   return (
-    <div className="flex justify-center items-center bg-secondary-foreground h-screen">
-      <Card className="md:w-[30%] border-4  border-primary">
+    <div>
+      <Card className=" bg-secondary-foreground border-4  border-primary">
         <CardHeader className="mb-4">
           <CardTitle className="flex flex-row items-center justify-center">
             <Image
@@ -68,9 +68,7 @@ const SignUp = (props: Props) => {
               height={45}
               className="rounded-lg mr-2"
             />
-            <p className="text-3xl text-secondary-foreground font-bold">
-              QRCrafter
-            </p>
+            <p className="text-3xl text-secondary font-bold">QRCrafter</p>
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -83,7 +81,9 @@ const SignUp = (props: Props) => {
                     control={form.control}
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Sign Up</FormLabel>
+                        <FormLabel className="text-secondary">
+                          Sign Up
+                        </FormLabel>
                         <FormControl>
                           <Input placeholder="Enter your email" {...field} />
                         </FormControl>
