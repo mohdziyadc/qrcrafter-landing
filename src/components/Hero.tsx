@@ -1,9 +1,14 @@
+"use client";
 import { Button } from "./ui/button";
 import HeroImage from "public/qrcrafter_hero.png";
 import Image from "next/image";
+import { MoveRightIcon } from "lucide-react";
+import WaitlistDialog from "./WaitlistDialog";
+import { useState } from "react";
 // import ModalVideo from '@/components/modal-video'
 
 export default function Hero() {
+  const [openDialog, setOpenDialog] = useState(false);
   return (
     <section className="relative  w-full md:h-screen">
       {/* Illustration behind hero content */}
@@ -13,8 +18,8 @@ export default function Hero() {
       >
         <svg
           width="1360"
-          height="578"
-          viewBox="0 0 1360 578"
+          height="768"
+          viewBox="0 0 1360 768"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
@@ -32,7 +37,11 @@ export default function Hero() {
           </defs>
           <g fill="url(#illustration-01)" fillRule="evenodd">
             <circle cx="1232" cy="128" r="128" />
-            <circle cx="155" cy="443" r="96" />
+            <circle cx="122" cy="572" r="96" />
+          </g>
+          <g fill="url(#illustration-01)" fillRule="evenodd">
+            <circle cx="1132" cy="568" r="96" />
+            <circle cx="155" cy="150" r="128" />
           </g>
         </svg>
       </div>
@@ -72,12 +81,20 @@ export default function Hero() {
                 data-aos-delay="300"
               >
                 <div>
-                  <Button className=" text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0">
-                    Start free trial
+                  <Button
+                    className="w-full flex flex-row justify-center items-center mb-4 sm:w-auto sm:mb-0"
+                    onClick={() => {
+                      setOpenDialog(true);
+                    }}
+                  >
+                    <div>Join the waitlist</div>
+                    <div>
+                      <MoveRightIcon className="h-6 w-6 ml-2" />
+                    </div>
                   </Button>
                 </div>
                 <div>
-                  <Button className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4">
+                  <Button className=" bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-2">
                     Learn more
                   </Button>
                 </div>
@@ -100,6 +117,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      <WaitlistDialog openDialog={openDialog} setOpenDialog={setOpenDialog} />
     </section>
   );
 }

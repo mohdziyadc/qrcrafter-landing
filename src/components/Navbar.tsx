@@ -10,7 +10,7 @@ import React, {
 
 import Image from "next/image";
 import LogoImage from "public/qrCrafter-Logo.png";
-import { ArrowRightIcon, Menu, X } from "lucide-react";
+import { ArrowRightIcon, Menu, MoveRightIcon, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { useRouter } from "next/navigation";
@@ -22,6 +22,7 @@ import {
   DialogTitle,
 } from "./ui/dialog";
 import SignUp from "./SignUpForm";
+import WaitlistDialog from "./WaitlistDialog";
 
 type Props = {};
 
@@ -35,7 +36,7 @@ const Navbar = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
 
   return (
     <>
-      <nav className="max-w-full px-6 py-4 z-10">
+      <nav className="max-w-full px-6 py-4 z-10 bg-primary-foreground rounded-lg m-4 border-2 ">
         <div className="flex justify-between items-center">
           <div className=" flex flex-row justify-center items-center font-bold text-4xl">
             <div className="mr-2">
@@ -76,7 +77,12 @@ const Navbar = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
                 setIsSignUp(true);
               }}
             >
-              Sign up
+              <div className="flex flex-row justify-center items-center">
+                <div>Sign up</div>
+                <div>
+                  <MoveRightIcon className="h-6 w-6 ml-4" />
+                </div>
+              </div>
             </Button>
           </div>
 
@@ -121,17 +127,7 @@ const Navbar = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
           </div>
         )}
       </nav>
-      <Dialog open={isSignUp} onOpenChange={setIsSignUp}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle className="font-bold">
-              Sign up to QRCrafter
-            </DialogTitle>
-            <DialogDescription>Join the waitlist here</DialogDescription>
-          </DialogHeader>
-          <SignUp />
-        </DialogContent>
-      </Dialog>
+      <WaitlistDialog openDialog={isSignUp} setOpenDialog={setIsSignUp} />
     </>
   );
 });

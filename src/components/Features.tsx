@@ -98,7 +98,7 @@ const Features = (props: Props) => {
         <div className="pt-12 md:pt-20">
           {/* Section header */}
           <div className="max-w-5xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="text-6xl font-extrabold mb-4">
+            <h1 className="sm:text-6xl text-5xl font-extrabold mb-4">
               A complete{" "}
               <span className="bg-clip-text text-transparent  bg-gradient-to-br from-pink-600 via-purple-300 to-indigo-500 ">
                 {" "}
@@ -106,7 +106,7 @@ const Features = (props: Props) => {
               </span>{" "}
               <span className=" underline underline-offset-4">solution</span>.
             </h1>
-            <p className="text-xl line-clamp-2 text-gray-600">
+            <p className="sm:text-xl text-lg text-gray-600">
               <span className="font-bold">QRCrafter</span> is an all-in-one QR
               Code solution. You can create different types of QR Codes specific
               to your needs. Never reprint. You can just change the QR Code
@@ -114,8 +114,8 @@ const Features = (props: Props) => {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-6 pb-10">
+        <div className="grid sm:grid-cols-2 grid-cols-1 gap-6">
+          <div className="col-span-1 sm:pb-10 ">
             <div className="flex flex-col mb-4 ">
               <div className="text-4xl font-bold ">
                 <span className="bg-clip-text text-transparent  bg-gradient-to-br from-red-500  to-pink-300 ">
@@ -123,7 +123,7 @@ const Features = (props: Props) => {
                 </span>{" "}
                 suite of QR Tools
               </div>
-              <div className="text-xl mt-4">
+              <div className="sm:text-xl text-lg mt-4">
                 <span className="font-bold">QRCrafter</span> offers you a
                 powerful set of QR codes and analytics. Track and manage your QR
                 Codes.
@@ -173,7 +173,7 @@ const Features = (props: Props) => {
               </Card>
             </div>
           </div>
-          <div className="col-span-6 flex flex-col">
+          <div className="col-span-1 flex flex-col pb-10 sm:pb-0">
             <Card
               className="w-full flex-[1] bg-secondary-foreground/80"
               data-aos="zoom-y-out"
@@ -189,8 +189,11 @@ const Features = (props: Props) => {
                   <div>
                     <Menubar className="flex flex-row justify-evenly mt-6">
                       <MenubarMenu>
-                        <MenubarTrigger className="flex justify-center">
+                        <MenubarTrigger className="sm:flex justify-center hidden">
                           URL QR
+                        </MenubarTrigger>
+                        <MenubarTrigger className="flex justify-center sm:hidden">
+                          URL
                         </MenubarTrigger>
                         <MenubarContent>
                           <MenubarItem>
@@ -200,8 +203,11 @@ const Features = (props: Props) => {
                       </MenubarMenu>
                       <Separator orientation="vertical" />
                       <MenubarMenu>
-                        <MenubarTrigger className="flex justify-center">
+                        <MenubarTrigger className="sm:flex justify-center hidden">
                           Multi URL QR
+                        </MenubarTrigger>
+                        <MenubarTrigger className="flex justify-center sm:hidden">
+                          Multi URL
                         </MenubarTrigger>
                         <MenubarContent>
                           <MenubarItem>
@@ -213,26 +219,38 @@ const Features = (props: Props) => {
                       <Separator orientation="vertical" />
 
                       <MenubarMenu>
-                        <MenubarTrigger className="flex justify-center">
+                        <MenubarTrigger className="sm:flex justify-center hidden">
                           Free Text QR
                         </MenubarTrigger>
+                        <MenubarTrigger className="flex justify-center sm:hidden">
+                          Text
+                        </MenubarTrigger>
                         <MenubarContent>
-                          <MenubarItem>
+                          <MenubarItem className="hidden">
                             When scanned, this QR code would show the embedded
                             text.
+                          </MenubarItem>
+                          <MenubarItem className="sm:hidden">
+                            This QR code would lead to the embedded text.
                           </MenubarItem>
                         </MenubarContent>
                       </MenubarMenu>
                       <Separator orientation="vertical" />
 
                       <MenubarMenu>
-                        <MenubarTrigger className="flex justify-center">
+                        <MenubarTrigger className="sm:flex justify-center hidden">
                           Contact QR
                         </MenubarTrigger>
+                        <MenubarTrigger className="flex justify-center sm:hidden">
+                          Contact
+                        </MenubarTrigger>
                         <MenubarContent>
-                          <MenubarItem>
+                          <MenubarItem className="hidden">
                             When scanned, this QR code would lead to a
                             downloadable contact.
+                          </MenubarItem>
+                          <MenubarItem className="sm:hidden">
+                            This QR code would lead to a downloadable contact.
                           </MenubarItem>
                         </MenubarContent>
                       </MenubarMenu>
@@ -273,22 +291,22 @@ const Features = (props: Props) => {
                         </div>
                         <div>
                           <Card>
-                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                            <CardHeader className="flex flex-row items-center justify-between pb-2">
                               <CardTitle className="text-sm font-medium">
                                 Total Scans
                               </CardTitle>
-                              <LineChartIcon className="h-6 w-6" />
+                              <LineChartIcon className="h-6 w-6 sm:ml-0 ml-2" />
                             </CardHeader>
                             <CardContent>
                               <div className="text-2xl font-bold">1901</div>
-                              <p className="text-xs text-muted-foreground">
+                              <p className="text-xs sm:mt-0 mt-4 text-muted-foreground">
                                 Total scan count of all your QR&apos;s.
                               </p>
                             </CardContent>
                           </Card>
                         </div>
                       </div>
-                      <div className="grid grid-cols-3 gap-2">
+                      <div className="grid sm:grid-cols-3 grid-cols-1 gap-2">
                         <div className="col-span-1">
                           <Card>
                             <CardHeader>
@@ -297,7 +315,7 @@ const Features = (props: Props) => {
                             <CardContent>
                               {recentScans.map((scan, idx) => (
                                 <Card
-                                  className="w-full flex flex-row justify-between items-center p-3.5 mb-2 hover:bg-primary hover:text-primary-foreground hover:cursor-pointer"
+                                  className="w-full flex flex-row justify-between items-center sm:p-3.5 p-2 pb-3 mb-2 hover:bg-primary hover:text-primary-foreground hover:cursor-pointer"
                                   key={idx}
                                 >
                                   <div className="text-xs font-semibold">

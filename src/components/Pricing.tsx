@@ -51,7 +51,7 @@ const Pricing = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
     <section
       ref={ref}
       id="pricing"
-      className="relative pb-8 bg-primary-foreground"
+      className="relative pb-8 px-4 bg-primary-foreground"
     >
       <div className="absolute left-0 right-0 m-auto  transform sm:-translate-y-1/3 sm:block hidden ">
         <div className="-mt-5 flex justify-center items-center">
@@ -139,7 +139,7 @@ const Pricing = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
           </Card>
         </div>
       </div>
-      <div className=" flex flex-row  justify-center items-center text-muted-foreground">
+      <div className=" flex flex-row px-4 justify-center items-center text-muted-foreground">
         <span className="font-bold mr-1">🚨</span>
         <p className="underline underline-offset-2">
           Waitlist members will get a special discount on launch

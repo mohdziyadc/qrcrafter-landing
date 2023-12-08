@@ -48,7 +48,7 @@ const UseCase = (props: Props) => {
       <div className="relative max-w-7xl mx-auto">
         <div className="pt-12 md:pt-20">
           {/* Section header */}
-          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
+          <div className="max-w-3xl mx-auto text-center pb-12 px-4 md:pb-16">
             <h1 className="text-5xl font-extrabold mb-4">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
                 Why do I need QRCrafter?

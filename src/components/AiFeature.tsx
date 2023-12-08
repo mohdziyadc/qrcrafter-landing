@@ -29,8 +29,8 @@ const AiFeature = (props: Props) => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="pt-12 md:pt-20">
           {/* Section header */}
-          <div className="max-w-5xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="text-6xl font-extrabold mb-4">
+          <div className="max-w-5xl mx-auto text-center pb-8 md:pb-16">
+            <h1 className="sm:text-6xl text-4xl font-extrabold mb-4">
               Let your
               <span className="bg-clip-text text-transparent  bg-gradient-to-br from-orange-600  to-yellow-400 ">
                 {" "}
@@ -38,7 +38,7 @@ const AiFeature = (props: Props) => {
               </span>{" "}
               run wild
             </h1>
-            <p className="text-xl line-clamp-2 text-gray-600">
+            <p className="sm:text-xl text-lg  text-gray-600">
               <span className="font-bold">QRCrafter</span> lets you create
               dynamic QR Codes with a prompt of your choice. Let the AI generate
               your QR Code with the prompt. No templates. Leave it your
