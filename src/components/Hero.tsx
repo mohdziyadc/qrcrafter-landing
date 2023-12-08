@@ -4,11 +4,14 @@ import HeroImage from "public/qrcrafter_hero.png";
 import Image from "next/image";
 import { MoveRightIcon } from "lucide-react";
 import WaitlistDialog from "./WaitlistDialog";
-import { useState } from "react";
+import { MutableRefObject, forwardRef, useState } from "react";
 // import ModalVideo from '@/components/modal-video'
 
-export default function Hero() {
+type Props = {};
+
+const Hero = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
   const [openDialog, setOpenDialog] = useState(false);
+  const aiFeatureRef = ref as MutableRefObject<HTMLElement>;
   return (
     <section className="relative  w-full md:h-screen">
       {/* Illustration behind hero content */}
@@ -87,14 +90,21 @@ export default function Hero() {
                       setOpenDialog(true);
                     }}
                   >
-                    <div>Join the waitlist</div>
+                    <div>Craft beautiful QR Codes</div>
                     <div>
                       <MoveRightIcon className="h-6 w-6 ml-2" />
                     </div>
                   </Button>
                 </div>
                 <div>
-                  <Button className=" bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-2">
+                  <Button
+                    className=" bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-2"
+                    onClick={() => {
+                      aiFeatureRef.current.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    }}
+                  >
                     Learn more
                   </Button>
                 </div>
@@ -120,4 +130,8 @@ export default function Hero() {
       <WaitlistDialog openDialog={openDialog} setOpenDialog={setOpenDialog} />
     </section>
   );
-}
+});
+
+Hero.displayName = "Hero";
+
+export default Hero;

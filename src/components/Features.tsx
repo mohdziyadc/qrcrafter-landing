@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -19,6 +19,7 @@ import { ArrowRight, LineChartIcon, QrCodeIcon } from "lucide-react";
 import Image from "next/image";
 import ChartImage from "public/qrChart_img.png";
 import { Button } from "./ui/button";
+import WaitlistDialog from "./WaitlistDialog";
 type Props = {};
 
 const Features = (props: Props) => {
@@ -36,6 +37,7 @@ const Features = (props: Props) => {
       scanCount: "32",
     },
   ];
+  const [openDialog, setOpenDialog] = useState(false);
   return (
     <section className="relative">
       <div
@@ -94,7 +96,7 @@ const Features = (props: Props) => {
         </div>
       </div>
       <div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-gray-200 transform -translate-y-1/2 sm:hidden"></div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="relative max-w-7xl mx-auto px-4 pb-10 sm:mb-8 sm:px-6">
         <div className="pt-12 md:pt-20">
           {/* Section header */}
           <div className="max-w-5xl mx-auto text-center pb-12 md:pb-16">
@@ -357,7 +359,23 @@ const Features = (props: Props) => {
             </div>
           </div>
         </div>
+        <div className=" absolute left-1/2 transform -translate-x-1/2 bottom-0  z-10">
+          <Button
+            className=" sm:w-[200px] w-[250px] mb-4"
+            onClick={() => {
+              setOpenDialog(true);
+            }}
+          >
+            <div className="flex justify-between items-center">
+              <div>Get QRCrafter</div>
+              <div className="ml-4 -mr-4">
+                <ArrowRight className="w-6 h-6" />
+              </div>
+            </div>
+          </Button>
+        </div>
       </div>
+      <WaitlistDialog openDialog={openDialog} setOpenDialog={setOpenDialog} />
     </section>
   );
 };

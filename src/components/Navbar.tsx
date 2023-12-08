@@ -54,9 +54,9 @@ const Navbar = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
             <div className="mr-5">
               <Link href={"/"}>Home</Link>
             </div>
-            <div className="mr-5">
+            {/* <div className="mr-5">
               <Link href={"/try"}>Try</Link>
-            </div>
+            </div> */}
             <div className="mr-5">
               <p
                 className="hover:cursor-pointer"
@@ -95,7 +95,7 @@ const Navbar = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
           </div>
         </div>
         {toggleMenu && (
-          <div className="fixed  pr-10 z-20  w-full  lg:hidden">
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-full z-20   lg:hidden">
             <Card className="w-full mt-2">
               <CardContent>
                 <div className="flex flex-col text-lg items-center justify-center  ">
@@ -105,18 +105,23 @@ const Navbar = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
                   >
                     Home
                   </Link>
-                  <Link
-                    href="/pricing"
-                    className="py-3 hover:bg-muted text-center rounded-md w-full"
+                  <p
+                    onClick={() => {
+                      pricingRef.current.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                      setToggleMenu(false);
+                    }}
+                    className="py-3 hover:cursor-pointer hover:bg-muted text-center rounded-md w-full"
                   >
                     Pricing
-                  </Link>
-                  <Link
+                  </p>
+                  {/* <Link
                     href="#"
                     className="py-3 hover:bg-muted text-center rounded-md w-full"
                   >
                     Try
-                  </Link>
+                  </Link> */}
 
                   <Button className="w-full" onClick={() => setIsSignUp(true)}>
                     Sign Up

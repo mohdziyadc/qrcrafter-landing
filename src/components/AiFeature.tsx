@@ -1,12 +1,12 @@
 import Image from "next/image";
-import React from "react";
+import React, { forwardRef } from "react";
 import ScreenShot from "public/qrcrafter_ss.png";
 
 type Props = {};
 
-const AiFeature = (props: Props) => {
+const AiFeature = forwardRef<HTMLElement, Props>((props: Props, ref) => {
   return (
-    <section className="relative bg-gray-100">
+    <section ref={ref} className="relative bg-gray-100">
       <div className="absolute left-0 right-0 m-auto  transform sm:-translate-y-3/4 sm:block hidden ">
         <div className="-mt-5 flex justify-center items-center">
           <svg
@@ -58,6 +58,7 @@ const AiFeature = (props: Props) => {
       </div>
     </section>
   );
-};
+});
 
+AiFeature.displayName = "AiFeature";
 export default AiFeature;

@@ -17,7 +17,7 @@ const WaitlistDialog = ({ openDialog, setOpenDialog }: Props) => {
   return (
     <div>
       <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-        <DialogContent className="mr-4 ml-4">
+        <DialogContent className=" ">
           <DialogHeader>
             <DialogTitle className="font-bold">
               Sign up to QRCrafter

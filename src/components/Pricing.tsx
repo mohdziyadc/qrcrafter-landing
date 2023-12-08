@@ -1,4 +1,5 @@
-import React, { forwardRef } from "react";
+"use client";
+import React, { forwardRef, useState } from "react";
 import { Button } from "./ui/button";
 import {
   Card,
@@ -9,6 +10,7 @@ import {
 } from "./ui/card";
 import { ArrowRight, Check, MoveRightIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import WaitlistDialog from "./WaitlistDialog";
 
 type Props = {};
 
@@ -47,6 +49,8 @@ const Pricing = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
       desc: "Lifetime Updates",
     },
   ];
+
+  const [openDialog, setOpenDialog] = useState(false);
   return (
     <section
       ref={ref}
@@ -130,7 +134,9 @@ const Pricing = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
             <CardFooter className="flex flex-col">
               <Button
                 className="flex flex-row text-lg py-4 w-full"
-                // onClick={paymentBtnHandler}
+                onClick={() => {
+                  setOpenDialog(true);
+                }}
               >
                 <p>Sign up to join waitlist</p>
                 <MoveRightIcon className="h-8 w-8 ml-4" />
@@ -145,6 +151,7 @@ const Pricing = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
           Waitlist members will get a special discount on launch
         </p>
       </div>
+      <WaitlistDialog openDialog={openDialog} setOpenDialog={setOpenDialog} />
     </section>
   );
 });

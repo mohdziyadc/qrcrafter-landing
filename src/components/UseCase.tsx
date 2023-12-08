@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import {
   ArrowRight,
@@ -11,10 +11,12 @@ import {
   UtensilsCrossedIcon,
 } from "lucide-react";
 import { Button } from "./ui/button";
+import WaitlistDialog from "./WaitlistDialog";
 
 type Props = {};
 
 const UseCase = (props: Props) => {
+  const [openDialog, setOpenDialog] = useState(false);
   return (
     <section className="relative bg-gray-100">
       <div className="absolute left-0 right-0 m-auto  transform sm:-translate-y-1/2 sm:block hidden ">
@@ -165,7 +167,12 @@ const UseCase = (props: Props) => {
         </div>
       </div>
       <div className=" absolute left-1/2 transform -translate-x-1/2 bottom-0   z-10">
-        <Button className=" sm:w-[200px] w-[250px] mb-4">
+        <Button
+          className=" sm:w-[200px] w-[250px] mb-4"
+          onClick={() => {
+            setOpenDialog(true);
+          }}
+        >
           <div className="flex justify-between items-center">
             <div>Get QRCrafter</div>
             <div className="ml-4 -mr-4">
@@ -174,6 +181,7 @@ const UseCase = (props: Props) => {
           </div>
         </Button>
       </div>
+      <WaitlistDialog openDialog={openDialog} setOpenDialog={setOpenDialog} />
     </section>
   );
 };
