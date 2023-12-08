@@ -13,7 +13,7 @@ const Hero = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
   const [openDialog, setOpenDialog] = useState(false);
   const aiFeatureRef = ref as MutableRefObject<HTMLElement>;
   return (
-    <section className="relative  w-full md:h-screen">
+    <section className="relative  w-full ">
       {/* Illustration behind hero content */}
       <div
         className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none -z-10 hidden sm:block"
@@ -39,17 +39,17 @@ const Hero = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
             </linearGradient>
           </defs>
           <g fill="url(#illustration-01)" fillRule="evenodd">
-            <circle cx="1232" cy="128" r="128" />
-            <circle cx="122" cy="572" r="96" />
+            <circle cx="1132" cy="300" r="128" />
+            <circle cx="122" cy="600" r="96" />
           </g>
           <g fill="url(#illustration-01)" fillRule="evenodd">
-            <circle cx="1132" cy="568" r="96" />
-            <circle cx="155" cy="150" r="128" />
+            <circle cx="1232" cy="650" r="96" />
+            <circle cx="155" cy="250" r="128" />
           </g>
         </svg>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 sm:pb-10">
         {/* Hero content */}
         <div className="flex flex-col sm:flex-row pt-32 pb-12 md:pt-40 md:pb-20">
           {/* Section header */}
@@ -75,8 +75,9 @@ const Hero = forwardRef<HTMLElement, Props>(({}: Props, ref) => {
                 data-aos="zoom-y-out"
                 data-aos-delay="150"
               >
-                Create beautiful <span className="font-bold">dynamic AI</span>{" "}
-                generated QR Codes to level up your marketing game.
+                Create beautiful <span className="font-bold">AI</span> generated{" "}
+                <span className="font-bold">dynamic QR Codes</span> to enhance
+                your marketing and amplify your brand&apos;s presence.
               </p>
               <div
                 className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-start"
